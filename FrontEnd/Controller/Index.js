@@ -24,7 +24,8 @@ function getAllBanner(){
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
-  </div>`
+  </div>
+  <button onclick="getData()">Click me</button>`
 }
 
 
@@ -56,7 +57,7 @@ function getData(){
                   <div style="display:flex">
                   <h5>Username :</h5>
                   <h5>${output[index].username}</h5>
-
+                  
                   </div>
 `
     }
@@ -73,7 +74,7 @@ function getData(){
 function start(){
     getAllBanner();
     getName();
-    getData();
+    
 }
 
 window.onload = start();
