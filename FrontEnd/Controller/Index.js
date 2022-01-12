@@ -29,9 +29,6 @@ function getAllBanner(){
 }
 
 
-function getName(){
-    console.log("Pankaj Bhisikar");
-}
 
 function getData(){
   axios({
@@ -46,19 +43,7 @@ function getData(){
     for(let index=0;index<=output.length; index++){
 
       document.getElementById("apiData").innerHTML += `
-      <div style="display:flex; margin-top:50px">
-                  <h5>Id :</h5>
-                  <h5>${output[index].id}</h5>
-                  </div>
-                  <div style="display:flex">
-                  <h5>Name :</h5>
-                  <h5>${output[index].name}</h5>
-                  </div>
-                  <div style="display:flex">
-                  <h5>Username :</h5>
-                  <h5>${output[index].username}</h5>
-                  
-                  </div>
+     po
 `
     }
 
