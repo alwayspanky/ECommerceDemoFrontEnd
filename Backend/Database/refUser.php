@@ -33,6 +33,48 @@
             return $aResult;
 
         }
+
+        /////////Login 
+
+        public static function loginUser($username, $pass){
+
+            $aResult = array();
+
+            $db = new Database();
+
+            $sql = "SELECT * FROM `user_info` WHERE username='".$username."' AND password='".$pass."' ";
+
+             //$aResult['trace']['sql'] = $sql;
+    
+            $result = $db->getConnection()->query($sql);
+    
+            
+    
+            if ($result->num_rows === 0) {
+    
+                $aResult['status']['code'] = 'NOT_FOUND';
+    
+                $aResult['status']['messge'] = "Username or password are incorrect.";
+    
+            } else {
+    
+                while($row = $result->fetch_assoc()) {
+    
+                    $aResult['output']['user_id'] = $row['user_id'];
+    
+                    $aResult['output']['username'] = $row['username'];
+    
+                    $aResult['status']['code'] = 'LOGIN_SUCCESSFULL';
+    
+                    $aResult['status']['message'] = "Login Successfull.";
+    
+                }  
+    
+            } 
+    
+    return $aResult;
+
+        }
     }
 
     ?>
