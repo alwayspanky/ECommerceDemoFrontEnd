@@ -18,10 +18,12 @@
 
             </div>
 
-            <div id="apiData">
-                
-                
-            </div>
+            <div style="margin:2%">
+                <h2>Categories</h2>
+                <div class="row" id="catDiv">
+                    
+                </div>
+            </div>  
 
             <div style="height:500px">
 </div>

@@ -31,43 +31,45 @@ function getAllBanner(){
       <span class="visually-hidden">Next</span>
     </button>
   </div>
-  <button onclick="getData()">Click me</button>`
+  `
 
 });
 }
 
 
+function getAllCategories(){
 
-function getData(){
+  let catDivision = document.getElementById("catDiv");
+
   axios({
     method: 'get',
-    url: "https://jsonplaceholder.typicode.com/users",
+    url: BaseUrl + "getCategories.php",
     
     })
 .then(res =>{
-    let output = res.data;
-    console.log(output);
+    let data = res.data;
+    console.log(data);
 
-    for(let index=0;index<=output.length; index++){
 
-      document.getElementById("apiData").innerHTML += `
-     po
-`
+      for(let i= 0 ;i<5;i++){
+
+          catDivision.innerHTML +=`<div class="col">
+          <img style="width:150px; height:150px"  src="${data.output.category[i].cat_img}" />
+          <h4>${data.output.category[i].cat_name}</h4>
+        </div>`
+
     }
 
-   
-
-    }, err=>{
-    console.log(err)
-    });
-   
+});
 
 }
 
+
+
 function start(){
     getAllBanner();
-    getName();
-    
+    getAllCategories();
+
 }
 
 window.onload = start();
