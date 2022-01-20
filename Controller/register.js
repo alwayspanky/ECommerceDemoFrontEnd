@@ -10,7 +10,7 @@ function registerUser(){
 
     axios({
         method: 'post',
-        url: "http://192.168.1.37/ECommerceDemo/Backend/Services/register.php",
+        url: "http://192.168.1.37/ECommerceDemoBackend/Services/register.php",
         params:{
             "username":name,
             "mobile": mobile,

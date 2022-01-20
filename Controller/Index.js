@@ -1,6 +1,12 @@
 let banner = document.getElementById("bannerDiv");
 
-let BaseUrl = "http://192.168.1.37/ECommerceDemo/Backend/Services/";
+let BaseUrl = "http://192.168.1.37/ECommerceDemoBackend/Services/";
+
+let userName = localStorage.getItem("username");
+let userId = localStorage.getItem("userId");
+
+console.log("userName", userName);
+console.log("userId", userId);
 
 function getAllBanner(){
 
@@ -54,8 +60,8 @@ function getAllCategories(){
       for(let i= 0 ;i<5;i++){
 
           catDivision.innerHTML +=`<div class="col">
-          <img style="width:150px; height:150px"  src="${data.output.category[i].cat_img}" />
-          <h4>${data.output.category[i].cat_name}</h4>
+          <img style="width:150px; height:150px"  src="${data.output.category[i].cat_img}"   />
+          <h4><a href="products.php" onclick="getCatId(${data.output.category[i].cat_id})">${data.output.category[i].cat_name}</a></h4>
         </div>`
 
     }
@@ -64,6 +70,12 @@ function getAllCategories(){
 
 }
 
+
+function getCatId(id){
+
+  console.log("Category Id",id);
+  localStorage.setItem("catId", id);
+}
 
 
 function start(){
