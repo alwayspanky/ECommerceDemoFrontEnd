@@ -70,10 +70,11 @@ function getAllCategories(){
 
 }
 
+let catIdName = "Category Id";
 
 function getCatId(id){
 
-  console.log("Category Id",id);
+  console.log(catIdName,id);
   localStorage.setItem("catId", id);
 }
 

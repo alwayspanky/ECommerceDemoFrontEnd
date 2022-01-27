@@ -12,6 +12,8 @@
     <title>ECommerce Demo</title>
 </head>
 <body>
+
+            <h4><a href="cart.php">Cart</a></h4>
            <!-- Banner Area -->
            <div id="bannerDiv">
 

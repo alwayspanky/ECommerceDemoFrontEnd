@@ -39,7 +39,7 @@ function getProducts(){
                     <button
                     class="inline-flex text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded text-lg">Wishlist</button>
                     <button
-                    class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Add
+                    class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg"  onclick="addCartItem(${data.output.products[i].p_id})">Add
                     To Cart</button>
                 </div>
                 </div>
@@ -50,6 +50,37 @@ function getProducts(){
         }
     
     });
+}
+
+function addCartItem(pId){
+
+    console.log("productId",pId);
+
+    let userId = localStorage.getItem("userId");
+
+    axios({
+        method: 'post',
+        url: "http://192.168.1.37/ECommerceDemoBackend/Services/addToCart.php",
+        params:{
+            "productId":pId,
+            "userId":userId
+        }
+        
+        })
+    .then(res =>{
+        let data = res.data;
+        console.log(data);
+
+        if(data.status.code == "PRODUCT_ADDED"){
+    
+            alert("Added to cart.");
+    
+        }else{
+            alert("Failed to add.");
+        }
+        }, err=>{
+        console.log(err)
+        });
 }
 
 
