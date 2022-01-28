@@ -28,7 +28,7 @@
   <!-- Shopping Cart details -->
 
   <!-- Item1 -->
-    <div id="productList">
+    <div id="cartList">
        
 
     </div>
