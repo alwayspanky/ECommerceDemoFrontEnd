@@ -1,4 +1,5 @@
 let cartDiv = document.getElementById("cartList");
+let sum = 0;
 
 
 function getCartProducts(){
@@ -18,8 +19,10 @@ function getCartProducts(){
     .then(res =>{
         let data = res.data;
         console.log(data);
+        
 
         for(let i= 0; i<data.output.products.length; i++){
+            
             
         
         cartDiv.innerHTML +=`
@@ -49,11 +52,34 @@ function getCartProducts(){
             </section>
         </div>
         `
+            sum = sum + parseInt(data.output.products[i].p_price);
+           
+
     }
-       
+    console.log(sum);
+    SetTotal();
+
         }, err=>{
         console.log(err)
         });
 }
 
-window.onload = getCartProducts();
+
+function SetTotal(){
+
+    document.getElementById("total").innerHTML = `
+    <div style="float:right;">
+      <h2 style="padding-bottom:20px">Total <b>₹ ${sum}</b></h2>
+      <button
+            class="inline-flex text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded text-lg"  >Proceed To Checkout</button>
+      <div>
+    `
+}
+
+function start(){
+    getCartProducts();
+    
+   
+}
+
+window.onload = start();
