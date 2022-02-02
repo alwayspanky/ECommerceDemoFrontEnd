@@ -57,6 +57,7 @@ function getCartProducts(){
 
     }
     console.log(sum);
+    localStorage.setItem("subtotal",sum);
     SetTotal();
 
         }, err=>{
@@ -71,7 +72,7 @@ function SetTotal(){
     <div style="float:right;">
       <h2 style="padding-bottom:20px">Total <b>₹ ${sum}</b></h2>
       <button
-            class="inline-flex text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded text-lg"  >Proceed To Checkout</button>
+            class="inline-flex text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded text-lg" onclick="window.location.href='checkout.php'" >Proceed To Checkout</button>
       <div>
     `
 }
